@@ -11,10 +11,8 @@ import java.util.List;
 @Entity
 @Table(name="produit")
 public class Produit {
-	
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
 

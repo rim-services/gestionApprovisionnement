@@ -2,8 +2,9 @@ let h1;
 let temp;
 let s=0;
 //var id =parseInt(localStorage.getItem('myValue'));
-let url2='http://localhost:8088/services/RS/Produit';
-let url1='http://localhost:8088/services/RS/stock';
+let url2='http://localhost:8080/gestionApprovisionnement_war/RS/Produit';
+let url1='http://localhost:8080/gestionApprovisionnement_war/RS/stock';
+
 //let id=document.getElementById("edit_id");
 
 //
@@ -44,14 +45,15 @@ function afficherStock(){
 
 
 function onFormSubmit() {
-  console.log(code.value);
-  console.log(libelle.value);
-  console.log(prix.value);
-  console.log(date_Expiration.value);
-  console.log(quantite.value);
-  console.log(id_stock.value);
+
   addProduitForm.addEventListener('submit',(e)=>{
     e.preventDefault();
+    console.log(code.value);
+    console.log(libelle.value);
+    console.log(prix.value);
+    console.log(date_Expiration.value);
+    console.log(quantite.value);
+    console.log(id_stock.value);
     fetch(url2,{
       method:'POST',
       

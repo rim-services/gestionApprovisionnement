@@ -2,7 +2,7 @@
 let temp;
 let s=0;
 var id =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8088/services/RS/admin';
+let url='http://localhost:8080/gestionApprovisionnement_war/RS/admin';
 
 //let id=document.getElementById("edit_id");
 console.log(id);
@@ -27,8 +27,7 @@ function onFormSubmit() {
     e.preventDefault();
     fetch(url,{
       method:'POST',
-      
-      // mode: 'cors',  
+
       body: JSON.stringify({
         email: email.value,
         nom: nom.value,

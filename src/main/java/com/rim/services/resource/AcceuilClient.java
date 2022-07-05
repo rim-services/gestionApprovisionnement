@@ -3,9 +3,6 @@ package com.rim.services.resource;
 import jakarta.servlet.http.HttpServlet;
 
 
-/**
- * Servlet implementation class AcceuilClient
- */
 public class AcceuilClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
