@@ -2,38 +2,33 @@
 let temp;
 let s=0;
 var id =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8088/services/RS/admin';
+let url='http://localhost:8088/services/RS/Sortie';
 
+
+let date=document.getElementById("date");
+let description=document.getElementById("description");
 //let id=document.getElementById("edit_id");
 console.log(id);
 //
 
-const addAdminForm = document.querySelector(".forms-sample");
+const addSortieForm = document.querySelector(".forms-sample");
 //const editAdminForm = document.querySelector(".add-admin-form");
 //const table = document.querySelector('.table');
 // let url="http://localhost:8088/services/RS/admin";
 
 //afficher()
 
-let nom=document.getElementById("nom");
-let prenom=document.getElementById("prenom");
-let email= document.getElementById("email");
-let pass=document.getElementById("password");
-console.log(nom);
-
 function onFormSubmit() {
 
-  addAdminForm.addEventListener('submit',(e)=>{
+  addASortieForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     fetch(url,{
       method:'POST',
       
       // mode: 'cors',  
       body: JSON.stringify({
-        email: email.value,
-        nom: nom.value,
-        pass: pass.value,
-        prenom: prenom.value
+        date: date.value,
+        description: description.value
       }),
 
       headers:{

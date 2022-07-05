@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "produit_commander")
+@Table(name="produit_commander")
 public class Produit_commander {
 	
 	@Id

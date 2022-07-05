@@ -3,31 +3,36 @@ const s=0;
 //const editAdminForm = document.querySelector(".add-admin-form");
 const table = document.querySelector('.table');
 // let url="http://localhost:8088/services/RS/admin";
-let url='http://localhost:8088/services/RS/admin';
+let url='http://localhost:8088/services/RS/Sortie_detail';
+let url1 ='http://localhost:8088/services/RS/Sortie';
+let url2 ='http://localhost:8088/services/RS/Produit';
+
+
 afficher()
-let nom=document.getElementById("nom");
-let prenom=document.getElementById("prenom");
-let email= document.getElementById("email");
-let pass=document.getElementById("password");
+let produit_id=document.getElementById("produit_id");
+let sortie_id= document.getElementById("sortie_id");
+let quantite=document.getElementById("quantite");
+let pu=document.getElementById("pu");
 
 function afficher(){
   fetch(url) 
   .then(res => res.json())
-  .then(data=>renderAdmins(data))
+  .then(data=>renderSortiedetails(data))
 
-  const renderAdmins =(admins)=>{
+  const renderSortiedetails =(sortiedetails)=>{
   let  html='';  
  
-    admins.forEach(admin=>{
+    sortiedetails.forEach(Sortie_detail=>{
      
   //h=admin.id;
 
   html+='<tr>';
-  html+='<td>'+admin.id+'</td>';
-  html+='<td>'+admin.nom+'</td>';
-  html+='<td>'+admin.prenom+'</td>';
-  html+='<td>'+admin.email+'</td>';
-  html+='<td> <a  onclick="valueSender('+admin.id+')" ><i class="fas fa-edit" style="font-size:18px;color:rgb(90, 168, 245)"> </i></a>&emsp;<a   id="delete"  onclick="DeleteData('+admin.id+')"> <i class="fa fa-trash" style="font-size:18px;color:red"></i></a></td>';
+  html+='<td>'+Sortie_detail.id+'</td>';
+  html+='<td>'+Sortie_detail.produit.id+'</td>';
+  html+='<td>'+Sortie_detail.sortie.id+'</td>';
+  html+='<td>'+Sortie_detail.quantite+'</td>';
+  html+='<td>'+Sortie_detail.pu+'</td>';
+  html+='<td> <a  onclick="valueSender('+Sortie_detail.id+')" ><i class="fas fa-edit" style="font-size:18px;color:rgb(90, 168, 245)"> </i></a>&emsp;<a   id="delete"  onclick="DeleteData('+Sortie_detail.id+')"> <i class="fa fa-trash" style="font-size:18px;color:red"></i></a></td>';
   html+='</tr>';
 
 })
@@ -41,7 +46,7 @@ function valueSender(id)
 
   localStorage.setItem('myValue',id);
  // console.log(localStorage.getItem('myValue'));
-  window.location.href="Updateadmin.html";
+  window.location.href="UpdateSortie_detail.html";
 } 
 
 

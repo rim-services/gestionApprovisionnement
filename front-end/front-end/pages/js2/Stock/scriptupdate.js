@@ -3,18 +3,19 @@ let temp;
 let s=0;
 let mod='create';
 var idEdit =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8088/services/RS/admin';
+let url='http://localhost:8088/services/RS/stock';
 
 
-const addAdminForm = document.querySelector(".forms-sample");
+
+let localisation=document.getElementById("localisation");
 let nom=document.getElementById("nom");
-let prenom=document.getElementById("prenom");
-let email= document.getElementById("email");
-let pass=document.getElementById("password");
+
+const addStockForm = document.querySelector(".forms-sample");
+
 updateData(idEdit)
 function update(){
    
-  addAdminForm.addEventListener('submit',(e)=>{
+  addStockForm.addEventListener('submit',(e)=>{
     e.preventDefault();
   fetch(`${url}/${idEdit}`,{
     method:'PUT',
@@ -25,10 +26,8 @@ function update(){
   },
     body: JSON.stringify({
   
-      nom: nom.value,
-      prenom: prenom.value,
-      pass: pass.value,
-      email: email.value
+      nom:nom.value,
+      localisation:localisation.value
       
     }),
   }) 
@@ -47,8 +46,7 @@ function updateData(idEdit){
   .then(res => res.json())
   .then(data=>{
     nom.value=data.nom,
-    prenom.value=data.prenom,
-    email.value=data.email
+    localisation.value=data.localisation
   })
 
 //update()
