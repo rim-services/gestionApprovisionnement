@@ -10,6 +10,7 @@ import com.rim.services.models.Admin;
 public class Authdao {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("ServicesUnit");
     EntityManager em = emf.createEntityManager();
+    
     public boolean validate(String nom,String password) {
         em.getTransaction().begin();
         String sql = "SELECT u FROM Admin u where  u.email = :nom and u.pass = :password ";
