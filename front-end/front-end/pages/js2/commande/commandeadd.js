@@ -2,9 +2,9 @@
 let temp;
 let s=0;
 var id =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8080/gestionApprovisionnement_war/RS/commande';
-let urlf = 'http://localhost:8080/gestionApprovisionnement_war/RS/fournisseur';
-let urlp = 'http://localhost:8080/gestionApprovisionnement_war/RS/Produit';
+let url='http://localhost:2525/services/RS/commande';
+let urlf = 'http://localhost:2525/services/RS/fournisseur';
+let urlp = 'http://localhost:2525/services/RS/Produit';
 
 
 const addCommandeForm = document.querySelector(".forms-sample");

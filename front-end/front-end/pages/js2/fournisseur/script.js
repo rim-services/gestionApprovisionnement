@@ -1,40 +1,32 @@
 let temp;
 const s=0;
-//const editAdminForm = document.querySelector(".add-admin-form");
 const table = document.querySelector('.table');
-// let url="http://localhost:8088/services/RS/admin";
-let url='http://localhost:8088/services/RS/Produit';
+let url='http://localhost:2525/services/RS/fournisseur';
 afficher()
-let code=document.getElementById("code");
-let libelle=document.getElementById("libelle");
-let prix= document.getElementById("prix");
-let date_Expiration=document.getElementById("date_Expiration");
-let  quantite=document.getElementById("quantite");
-let id_stock=document.getElementById("id_stock");
+let nom=document.getElementById("nom");
+let prenom=document.getElementById("prenom");
+let email= document.getElementById("email");
+let pass=document.getElementById("password");
 
 
 
 function afficher(){
   fetch(url) 
   .then(res => res.json())
-  .then(data=>renderProduits(data))
+  .then(data=>renderfournisseurs(data))
 
-  const renderProduits =(produits)=>{
+  const renderfournisseurs =(fournisseur)=>{
   let  html='';  
  
-  produits.forEach(produit=>{
+  fournisseur.forEach(fournisseur=>{
      
-  //h=admin.id;
-  console.log(produit);
+
   html+='<tr>';
-  html+='<td>'+produit.id+'</td>';
-  html+='<td>'+produit.code+'</td>';
-  html+='<td>'+produit.libelle+'</td>';
-  html+='<td>'+produit.prix+'</td>';
-  html+='<td>'+produit.date_Expiration+'</td>';
-  html+='<td>'+produit.quantite+'</td>';
-  html+='<td>'+produit.stock.id+'</td>';
-  html+='<td> <a  onclick="valueSender('+produit.id+')" ><i class="fas fa-edit" style="font-size:18px;color:rgb(90, 168, 245)"> </i></a>&emsp;<a   id="delete"  onclick="DeleteData('+produit.id+')"> <i class="fa fa-trash" style="font-size:18px;color:red"></i></a></td>';
+  html+='<td>'+fournisseur.id+'</td>';
+  html+='<td>'+fournisseur.nom+'</td>';
+  html+='<td>'+fournisseur.prenom+'</td>';
+  html+='<td>'+fournisseur.email+'</td>';
+  html+='<td> <a  onclick="valueSender('+fournisseur.id+')" ><i class="fas fa-edit" style="font-size:18px;color:rgb(90, 168, 245)"> </i></a>&emsp;<a   id="delete"  onclick="DeleteData('+fournisseur.id+')"> <i class="fa fa-trash" style="font-size:18px;color:red"></i></a></td>';
   html+='</tr>';
 
 })
@@ -48,12 +40,12 @@ function valueSender(id)
 
   localStorage.setItem('myValue',id);
  // console.log(localStorage.getItem('myValue'));
-  window.location.href="Updateproduit.html";
+  window.location.href="Updatefournisseur.html";
 } 
 
 
 function DeleteData(id) {
-  if (confirm('Vous voullez vraiment supprimer se produit?')) {
+  if (confirm('Vous voullez vraiment supprimer se pernonne?')) {
     fetch(`${url}/${id}`,{
       method:'DELete',
 

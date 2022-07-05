@@ -1,6 +1,6 @@
 let temp;
 const s=0;
-let url='http://localhost:8080/gestionApprovisionnement_war/RS/commande';
+let url='http://localhost:2525/services/RS/admin';
 afficher()
 
 const table = document.querySelector('.table');
