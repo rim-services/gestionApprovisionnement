@@ -3,8 +3,8 @@ package com.rim.services.resource;
 import java.util.List;
 
 import com.rim.services.dao.Produitdao;
-import com.rim.services.models.Produit;
 
+import com.rim.services.models.Produit;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;

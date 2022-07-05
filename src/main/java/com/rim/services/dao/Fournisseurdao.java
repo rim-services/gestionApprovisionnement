@@ -12,10 +12,10 @@ public class Fournisseurdao {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("ServicesUnit");
     EntityManager em = emf.createEntityManager();
-	
+
     public Fournisseur add(Fournisseur fournisseur) {
         em.getTransaction().begin();
-        em.persist(fournisseur); 
+        em.persist(fournisseur);
         em.getTransaction().commit();
         return fournisseur;
     }

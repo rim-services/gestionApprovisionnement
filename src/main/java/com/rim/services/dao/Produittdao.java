@@ -1,6 +1,7 @@
 package com.rim.services.dao;
 
 import com.rim.services.models.Produit;
+import com.rim.services.models.Produitt;
 
 import java.util.List;
 
@@ -9,44 +10,44 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-public class Produitdao {
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("ServicesUnit");
+public class Produittdao {
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ServicesUnit");
     EntityManager em = emf.createEntityManager();
-    public List<Produit> getAll() {
-        String sql = "select u from Produit u order by u.id desc ";
-        TypedQuery<Produit> qr = em.createQuery(sql, Produit.class);
+    public List<Produitt> getAll() {
+        String sql = "select u from Produitt u order by u.id desc ";
+        TypedQuery<Produitt> qr = em.createQuery(sql, Produitt.class);
         return qr.getResultList();
     }
-    
-    public Produit add(Produit produit) {
+
+    public Produitt add(Produitt produit) {
         em.getTransaction().begin();
-        em.persist(produit); 
+        em.persist(produit);
         em.getTransaction().commit();
         return produit;
     }
-    
-    public Produit update(Produit produit) {
+
+    public Produitt update(Produitt produit) {
         System.out.println("here ");
         em.getTransaction().begin();
         em.merge(produit);
         em.getTransaction().commit();
         return produit;
     }
-    
-    public boolean remove(Produit produit) {
+
+    public boolean remove(Produitt produit) {
 
         em.getTransaction().begin();
 
         em.remove(produit);
 
         em.getTransaction().commit();
-           return true;
+        return true;
     }
-    
-    public Produit getById(Long id) {
 
-        return em.find(Produit.class,id);
+    public Produitt getById(Long id) {
 
-       }
+        return em.find(Produitt.class,id);
+
+    }
 
 }

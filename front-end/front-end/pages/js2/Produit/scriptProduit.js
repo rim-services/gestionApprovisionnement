@@ -7,7 +7,7 @@ const addProduitForm = document.querySelector(".add-produit-form");
 //const editAdminForm = document.querySelector(".add-admin-form");
 const table = document.querySelector('.table');
 // let url="http://localhost:8088/services/RS/admin";
-let url='http://localhost:2525/services/RS/Produit';
+let url='http://localhost:2525/services/RS/Produitt';
 let url1='http://localhost:2525/services/RS/stock';
 
 let code=document.getElementById("code");

@@ -2,52 +2,74 @@
 let temp;
 let s=0;
 var id =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8080/gestionApprovisionnement_war/RS/commande';
+let url='http://localhost:8080/gestionApprovisionnement_war/RS/commandee';
 let urlf = 'http://localhost:8080/gestionApprovisionnement_war/RS/fournisseur';
-let urlp = 'http://localhost:8080/gestionApprovisionnement_war/RS/Produit';
-
+let urlp = 'http://localhost:8080/gestionApprovisionnement_war/RS/Produitt';
+let urls = 'http://localhost:8080/gestionApprovisionnement_war/RS/stock';
 
 const addCommandeForm = document.querySelector(".forms-sample");
 
 let libelle=document.getElementById("libelle");
-let libellep=document.getElementById("libellep");
 let etat=document.getElementById("etat");
 let date1= new Date();
 date1=date1.toISOString()
 
-let fournisseur=document.getElementById("Fournisseur");
+
+let fournisseur=document.getElementById("fournisseur");
 
 var c=0;
 var cc=1;
-let produits=[];
 let produit=[];
 
 
+function afficherStock(){
+    fetch(urlf)
+        .then(res1 => res1.json())
+        .then(data1=>renderStocks(data1))
 
 
+    const renderStocks =(stocks)=>{
+        let  html1='';
+
+        stocks.forEach(stock=>{
+
+            html1+='<option value="'+stock.id+'">'+stock.nom+'</option>';
+        })
+        document.getElementById("fournisseur").innerHTML=html1;
+    }
+}
+function afficherStock2(){
+    fetch(urls)
+        .then(res1 => res1.json())
+        .then(data1=>renderStocks(data1))
+
+
+    const renderStocks =(stocks)=>{
+        let  html1='';
+
+        stocks.forEach(stock=>{
+
+            html1+='<option value="'+stock.id+'">'+stock.nom+'</option>';
+        })
+        document.getElementById("stock").innerHTML=html1;
+    }
+}
 
 
 function onFormSubmit() {
     addCommandeForm.addEventListener('submit',(e)=>{
-            e.preventDefault();
-        // console.log(libelle.value);
-        // console.log(etat.value);
-        console.log(libellep.value);
-        // console.log(date1);
+        e.preventDefault();
+         getProduits();
+          produitLoop();
+            console.log(fournisseur.value);
+            console.log(libelle.value);
 
-        // getProduits();
-        console.log(produits);
             fetch(url,{
                 method:'POST',
                 body: JSON.stringify({
                     date: date1,
                     etat: etat.value,
-                    fournisseur: {
-                            email: "frn@gmail.com",
-                            nom: "fornisseurTest",
-                            pass: "1234",
-                            prenom: "frnprenom"
-                    },
+                    fournisseur: fournisseur.value,
                     libelle: libelle.value
                 }),
 
@@ -69,12 +91,12 @@ function onFormSubmit() {
 
 
 }
-
-
+let aa=1;
 function  add_more_field(){
+    let c=1, cc=1;
 
     html='<div  class="row1">\
-    <div class="card-header"><h6>Produit '+cc+' <br></h6></div>\
+    <div class="card-header"><h6>Produit '+aa+' <br></h6></div>\
         <div class="form-group row">\
         <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Libelle</label>\
         <div class="col-sm-9">\
@@ -105,26 +127,67 @@ function  add_more_field(){
             <select class="form-control" id="stock" name="'+(c+4)+'" ><option> select </option></select>\
         </div>\
     </div>\
-</div>'
-    var form=document.getElementById('commande_form')
+    </div>'
+    var form=document.getElementById('row12')
     form.innerHTML+=html;
 
     c=c+5;
     cc++;
+    aa++;
+    afficherStock2();
 }
 
 function getProduits(){
-    let inputs=[];
+
     var myP = document.getElementsByClassName("row1");
-
+    let products=[];
     for (var i = 0; i < myP.length; i++) {
-         inputs.push(myP[i].getElementById("libellep").value);
-        console.log(myP[i].getElementsByClassName("libellep").value);
-
+        let product = {
+            libelle: myP[i].getElementsByClassName("form-control")[0].value,
+            prix: myP[i].getElementsByClassName("form-control")[1].value,
+            quantity: myP[i].getElementsByClassName("form-control")[2].value,
+            date_exp: myP[i].getElementsByClassName("form-control")[3].value,
+            stock: myP[i].getElementsByClassName("form-control")[4].value
+        };
+        console.log(product);
+        products.push(product);
 
     }
+    return products;
 
-    console.log(array);
-    console.log(c);
-    console.log("++++++++++++++");
+}
+getProduits();
+
+afficherStock();
+
+function produitLoop(){
+    let productss=getProduits();
+    console.log("hhhhhhhhhhhhhh");
+    console.log(productss);
+    console.log("hhhhhhhh");
+for(let i=0; i<productss.length;i++){
+
+    fetch(urlp,{
+        method:'POST',
+        body: JSON.stringify({
+            libelle: productss[i].libelle,
+            prix: productss[i].prix,
+            quantite: productss[i].quantite,
+            date_Expiration: date1,
+            code: "a",
+            stock: 1
+        }),
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json; charset=UTF-8',
+        }
+    })
+        .then(response => console.log(response))
+        .catch(console.error);
+    window.location.href="commande.html";
+
+}
+
+
+
 }

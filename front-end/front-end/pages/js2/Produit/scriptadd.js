@@ -2,7 +2,7 @@ let h1;
 let temp;
 let s=0;
 //var id =parseInt(localStorage.getItem('myValue'));
-let url2='http://localhost:8080/gestionApprovisionnement_war/RS/Produit';
+let url2='http://localhost:8080/gestionApprovisionnement_war/RS/Produitt';
 let url1='http://localhost:8080/gestionApprovisionnement_war/RS/stock';
 
 //let id=document.getElementById("edit_id");
@@ -65,10 +65,7 @@ function onFormSubmit() {
       libelle: libelle.value,
       prix: prix.value,
       quantite:  quantite.value,
-      stock : {
-        localisation:"capital-boutique 123",
-        nom:"Magasin 1"
-        } 
+      stock : id_stock
       }),
 
       headers:{

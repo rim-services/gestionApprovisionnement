@@ -1,6 +1,7 @@
 package com.rim.services.dao;
 
 import com.rim.services.models.Commande;
+import com.rim.services.models.Commandee;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,27 +10,27 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 
-public class Commandedao {
+public class Commandeedao {
 
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("ServicesUnit");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ServicesUnit");
     EntityManager em = emf.createEntityManager();
 
 
-	public List<Commande> getAll() {
-        String sql = "select u from Commande u order by u.id desc  ";
-        TypedQuery<Commande> qr = em.createQuery(sql,  Commande.class);
+    public List<Commandee> getAll() {
+        String sql = "select u from Commandee u order by u.id desc  ";
+        TypedQuery<Commandee> qr = em.createQuery(sql,  Commandee.class);
         return qr.getResultList();
     }
-    public  Commande add( Commande  commande) {
+    public  Commandee add( Commandee  commandee) {
 
         em.getTransaction().begin();
-        em.persist(commande);
+        em.persist(commandee);
         em.getTransaction().commit();
-        return  commande;
+        return  commandee;
 
     }
 
-    public  Commande update(Commande  commande) {
+    public  Commandee update(Commandee  commande) {
         System.out.println("here ");
         em.getTransaction().begin();
         em.merge(commande);
@@ -37,19 +38,19 @@ public class Commandedao {
         return  commande;
     }
 
-    public boolean remove(Commande  commande) {
+    public boolean remove(Commandee  commande) {
 
         em.getTransaction().begin();
 
         em.remove(commande);
 
         em.getTransaction().commit();
-           return true;
+        return true;
     }
 
-    public Commande getById(Long id) {
+    public Commandee getById(Long id) {
 
-     return em.find(Commande.class,id);
+        return em.find(Commandee.class,id);
 
     }
 

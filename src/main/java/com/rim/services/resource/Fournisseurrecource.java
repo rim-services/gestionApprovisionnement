@@ -26,10 +26,10 @@ public class Fournisseurrecource {
         super();
     }
     Fournisseurdao ad = new Fournisseurdao();
-    
+
     @GET
     public List<Fournisseur> getall() {
-    	
+
         return ad.getAll();
     }
 
