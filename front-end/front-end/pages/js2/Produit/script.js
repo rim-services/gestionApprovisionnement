@@ -3,7 +3,7 @@ const s=0;
 //const editAdminForm = document.querySelector(".add-admin-form");
 const table = document.querySelector('.table');
 // let url="http://localhost:8088/services/RS/admin";
-let url='http://localhost:8080/gestionApprovisionnement_war/RS/admin';
+let url='http://localhost:2525/services/RS/Produit';
 afficher()
 let code=document.getElementById("code");
 let libelle=document.getElementById("libelle");

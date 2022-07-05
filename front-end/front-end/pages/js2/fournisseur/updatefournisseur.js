@@ -3,10 +3,10 @@ let temp;
 let s=0;
 let mod='create';
 var idEdit =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:2525/services/RS/admin';
+let url='http://localhost:2525/services/RS/fournisseur';
 
 
-const addAdminForm = document.querySelector(".forms-sample");
+const addfournisseurForm = document.querySelector(".forms-sample");
 let nom=document.getElementById("nom");
 let prenom=document.getElementById("prenom");
 let email= document.getElementById("email");
@@ -14,7 +14,7 @@ let pass=document.getElementById("password");
 updateData(idEdit)
 function update(){
    
-  addAdminForm.addEventListener('submit',(e)=>{
+  addfournisseurForm.addEventListener('submit',(e)=>{
     e.preventDefault();
   fetch(`${url}/${idEdit}`,{
     method:'PUT',
@@ -37,7 +37,6 @@ function update(){
   .catch(console.error);
  
 })
-//window.location.href="admin.html";
     }
 
 function updateData(idEdit){
