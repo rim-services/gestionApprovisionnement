@@ -1,6 +1,7 @@
 package com.rim.services.resource;
 
 import com.rim.services.dao.Admindao;
+import com.rim.services.dao.Authdao;
 import com.rim.services.models.Admin;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -17,6 +18,7 @@ public class Adminrecource {
         super();
     }
     Admindao ad = new Admindao();
+    Authdao authdoa=new Authdao();
     
     @GET
     public List<Admin> getall() {
@@ -50,4 +52,10 @@ public class Adminrecource {
     public boolean delete(@PathParam("idAdmin") Long id) {
       return ad.remove(ad.getById(id));
     }
+    @GET
+    @Path("login/{login}/{password}")
+    public boolean getUser(@PathParam("login")String login, @PathParam("password")String password) {
+  		boolean userWithToken = authdoa.validate(login, password); 
+  		 return  userWithToken ; 
+        }
 }

@@ -115,32 +115,31 @@
 
                 <div class="col-md-15">
                                 <div class="card" style="min-height: 484px;">
-                                    <div class="card-header"><h3>Ajouter Admin</h3></div>
+                                    <div class="card-header"><h3>Ajouter </h3></div>
                                     <div class="card-body">
                                         <form class="forms-sample" onsubmit="event.preventDefault();onFormSubmit();" >
                                             <div class="form-group row">
-                                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nom</label>
+                                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">ID Produit</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="nom" placeholder="Nom">
+                                                    <select name="pets"   class="form-control" id="produit_id">
+                                                    <option class="produit_id" >--Please choose an option--</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Prenom</label>
+                                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">ID Commande</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="prenom" placeholder="Prenom">
+                                                    <select name="pets"   class="form-control" id="commande_id">
+                                                    <option class="id_stock" >--Please choose an option--</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                                                </div>
-                                            </div>
+                                            <
                                          
                                             <div class="form-group row">
-                                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Quantite</label>
                                                 <div class="col-sm-9">
-                                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                                    <input type="number" class="form-control" id="quantite" placeholder="quantite">
                                                 </div>
                                             </div>
                                            
@@ -280,7 +279,7 @@
                         </div>
                     </div>
                     
-        <script src="js2/admin/scriptadd.js"></script>  
+        <script src="js2/ProduitCommander/scriptadd.js"></script>  
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>window.jQuery || document.write('<script src="../src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>

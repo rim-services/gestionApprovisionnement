@@ -3,18 +3,16 @@ let temp;
 let s=0;
 let mod='create';
 var idEdit =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:2525/services/RS/admin';
+let url='http://localhost:2525/services/RS/entree';
 
 
-const addAdminForm = document.querySelector(".forms-sample");
-let nom=document.getElementById("nom");
-let prenom=document.getElementById("prenom");
-let email= document.getElementById("email");
-let pass=document.getElementById("password");
+const addEntreeForm = document.querySelector(".forms-sample");
+let date=document.getElementById("date");
+let description=document.getElementById("description");
 updateData(idEdit)
 function update(){
    
-  addAdminForm.addEventListener('submit',(e)=>{
+  addEntreeForm.addEventListener('submit',(e)=>{
     e.preventDefault();
   fetch(`${url}/${idEdit}`,{
     method:'PUT',
@@ -25,10 +23,9 @@ function update(){
   },
     body: JSON.stringify({
   
-      nom: nom.value,
-      prenom: prenom.value,
-      pass: pass.value,
-      email: email.value
+      date: date.value,
+      decription: description.value,
+     
       
     }),
   }) 
@@ -37,7 +34,6 @@ function update(){
   .catch(console.error);
  
 })
-//window.location.href="admin.html";
     }
 
 function updateData(idEdit){
@@ -46,9 +42,8 @@ function updateData(idEdit){
   }) 
   .then(res => res.json())
   .then(data=>{
-    nom.value=data.nom,
-    prenom.value=data.prenom,
-    email.value=data.email
+    date.value=data.date,
+    decription.value=data.decription
   })
 
 //update()

@@ -1,33 +1,34 @@
-
 let temp;
 let s=0;
 var id =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8088/services/RS/stock';
+let url='http://localhost:2525/services/RS/entree';
 
-
+//let id=document.getElementById("edit_id");
+console.log(id);
 //
-let localisation=document.getElementById("localisation");
-let nom=document.getElementById("nom");
 
-const addStockForm = document.querySelector(".forms-sample");
-//const editAdminForm = document.querySelector(".add-admin-form");
+const addEntreeForm = document.querySelector(".forms-sample");
+//const editentreeForm = document.querySelector(".add-entree-form");
 //const table = document.querySelector('.table');
-// let url="http://localhost:8088/services/RS/admin";
+// let url="http://localhost:8088/services/RS/entree";
 
 //afficher()
 
+let date=document.getElementById("date");
+let description=document.getElementById("description");
+console.log(description);
 
 function onFormSubmit() {
 
-  addStockForm.addEventListener('submit',(e)=>{
+  addentreeForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     fetch(url,{
       method:'POST',
-      
-      // mode: 'cors',  
+
       body: JSON.stringify({
-        nom:nom.value,
-        localisation:localisation.value
+        date: date.value,
+        description: description.value,
+       
       }),
 
       headers:{

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Admins</title>
+        <title>Entrees</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@
                 <div class="app-sidebar colored">
                     <div class="sidebar-header">
                         <a class="header-brand" href="index.html">
-                            
+                           
                             <span class="text">Gestion_Prov</span>
                         </a>
                         <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
@@ -106,7 +106,7 @@
                             <div class="row align-items-end">
                                 <div class="col-lg-8">
                                     <div class="page-header-title">
-                                        Listes des Produits
+                                    les Entrees
                                     </div>
                                 </div>
                              
@@ -117,20 +117,18 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div class="card-header"><a href="addproduit.html"  onclick="afficherStock()">Ajouter</a></div>
+                                    <div class="card-header"><a href="Addentree.html">Ajouter</a></div>
                                     <div class="card-body">
                                         <table id="data_table" class="table">
                                             <thead>
-                                                <th>ID</th>
-                                                <th>code</th>
-                                                <th>libelle</th>
-                                                <th>prix</th>
-                                                <th>date_Expiration</th>
-                                                <th>quantite</th>
-                                                <th>id_stock</th>
-                                               
-                                                <th class="nosort">&nbsp;</th>
-                                              </thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <!--<th class="nosort">Photo</th> -->
+                                                    <th>date</th>
+                                                    <th>description</th>
+                                                    <th class="nosort">&nbsp;</th>
+                                                </tr>
+                                            </thead>
                                             <tbody id="table">
                                             
                                                 
@@ -183,8 +181,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>
-        
-
-          <script src="js2/Produit/script.js"></script>
+          <script src="js2/entree/script.js"></script>
     </body>
 </html>
