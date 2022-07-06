@@ -36,7 +36,6 @@ function afficher(){
 function valueSender(id)
 {
 
-
   localStorage.setItem('myValue',id);
  // console.log(localStorage.getItem('myValue'));
   window.location.href="Updateadmin.html";
@@ -53,5 +52,5 @@ function DeleteData(id) {
     .then(json => console.log(json))
     afficher();
   }
-  
+  afficher();
 }

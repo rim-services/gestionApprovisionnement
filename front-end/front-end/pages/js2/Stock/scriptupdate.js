@@ -3,7 +3,7 @@ let temp;
 let s=0;
 let mod='create';
 var idEdit =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8080/gestionApprovisionnement_war/RS//stock';
+let url='http://localhost:8080/gestionApprovisionnement_war/RS/stock';
 
 
 
