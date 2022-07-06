@@ -52,8 +52,9 @@ public class Adminrecource {
     public boolean delete(@PathParam("idAdmin") Long id) {
       return ad.remove(ad.getById(id));
     }
+
     @GET
-    @Path("login/{login}/{password}")
+    @Path("/login/{login}/{password}")
     public boolean getUser(@PathParam("login")String login, @PathParam("password")String password) {
   		boolean userWithToken = authdoa.validate(login, password); 
   		 return  userWithToken ; 

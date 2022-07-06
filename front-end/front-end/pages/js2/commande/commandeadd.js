@@ -88,7 +88,7 @@ function onFormSubmit() {
         },
 
     );
-
+    window.location.href="commande.html";
 
 }
 let aa=1;

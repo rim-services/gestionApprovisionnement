@@ -1,7 +1,7 @@
 let temp;
 const s=0;
 const table = document.querySelector('.table');
-let url='http://localhost:2525/services/RS/admin';
+let url='http://localhost:8080/gestionApprovisionnement_war/RS/admin';
 afficher()
 let nom=document.getElementById("nom");
 let prenom=document.getElementById("prenom");

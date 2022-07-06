@@ -3,8 +3,8 @@ let temp;
 let s=0;
 let mod='create';
 var idEdit =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:8088/services/RS/Produit';
-let url1='http://localhost:2525/services/RS/stock';
+let url='http://localhost:8080/gestionApprovisionnement_war/RS/Produitt';
+let url1='http://localhost:8080/gestionApprovisionnement_war/RS/stock';
 
 let code=document.getElementById("code");
 let libelle=document.getElementById("libelle");

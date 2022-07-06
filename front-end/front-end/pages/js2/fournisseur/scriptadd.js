@@ -2,7 +2,7 @@
 let temp;
 let s=0;
 var id =parseInt(localStorage.getItem('myValue'));
-let url='http://localhost:2525/services/RS/fournisseur';
+let url='http://localhost:8080/gestionApprovisionnement_war/RS/fournisseur';
 
 console.log(id);
 
